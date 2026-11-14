@@ -10,7 +10,7 @@ The official synchronous Go client SDK for [Playwell](https://github.com/ModestB
 ## Features
 
 * **Zero External Dependencies:** Built exclusively on the Go standard library (`net/http`, `context`, `encoding/json`).
-* **Config-less Default:** Connects automatically to the public instance at `https://playwell.bitboard.ca`, with functional options and environment overrides for self-hosted servers.
+* **Configless Default:** Connects automatically to the public instance at `https://playwell.bitboard.ca`, with functional options and environment overrides for self-hosted servers.
 * **Memory, Disk, & Raw Streams:** Load cover images and PDFs directly into RAM (`[]byte`), stream heavy manuals straight to disk, or consume raw `io.ReadCloser` streams.
 * **Automatic Handshake Validation:** Verifies server reachability and API version compatibility (`v1`) on initialization (can be disabled).
 * **Idiomatic Error Handling:** Returns strongly typed structs (`Kit`, `Instruction`, `ServerStatus`) alongside sentinel errors (`ErrNotFound`, `ErrVersionMismatch`, `ErrConnection`) and structured `*APIError` types.
@@ -154,10 +154,10 @@ func loadAssets(ctx context.Context, client *playwell.Client) error {
 
 All sentinel errors can be checked using `errors.Is`, and HTTP error details can be inspected using `errors.As` with `*playwell.APIError`:
 
-* `ErrConnection` — Network timeout or unreachable server.
-* `ErrVersionMismatch` — Server does not support the client's API version (`v1`).
-* `ErrNotFound` — Requested kit or instruction ID returned HTTP 404.
-* `*APIError` — Unexpected 4xx / 5xx HTTP error response (`StatusCode` and `Detail`).
+* `ErrConnection` - Network timeout or unreachable server.
+* `ErrVersionMismatch` - Server does not support the client's API version (`v1`).
+* `ErrNotFound` - Requested kit or instruction ID returned HTTP 404.
+* `*APIError` - Unexpected 4xx / 5xx HTTP error response (`StatusCode` and `Detail`).
 
 ## Related Projects
 
